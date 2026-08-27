@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://siliang42.github.io/a-share-events-calendar/sitemap.xml

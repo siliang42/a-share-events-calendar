@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using this metadata."
+title: "A-Share Events Calendar"
+type: software
+authors:
+  - name: "A-Share Events Calendar contributors"
+version: 1.0.0
+date-released: 2026-08-27
+license: MIT
+repository-code: "https://github.com/siliang42/a-share-events-calendar"
+url: "https://siliang42.github.io/a-share-events-calendar/"
+abstract: "An open-source calendar of officially announced events relevant to A-share research."
+keywords:
+  - A-share
+  - event calendar
+  - market research

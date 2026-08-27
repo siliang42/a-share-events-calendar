@@ -1,0 +1,24 @@
+# A-Share Events Calendar
+
+## Purpose
+
+A-Share Events Calendar is an open-source calendar of officially announced policy, macro, industry, and company events relevant to A-share research.
+
+## Data Policy
+
+Only officially announced events with official or primary HTTPS sources are included. Supported fields: id, title, startDate, endDate, category, description, status, sourceName, sourceUrl, and verifiedAt. Supported statuses: confirmed, postponed, and cancelled.
+
+## Limitations
+
+Current coverage is limited to 3 confirmed 2026 FOMC records. The `HOLIDAYS` array is currently empty. It does not provide investment advice, price predictions, security rankings, or trading recommendations. Event records are factual summaries of cited announcements and may change when official sources update.
+
+## Documentation
+
+- Live demo: https://siliang42.github.io/a-share-events-calendar/
+- Repository: https://github.com/siliang42/a-share-events-calendar
+- English README: https://github.com/siliang42/a-share-events-calendar/blob/main/README.md
+- Chinese README: https://github.com/siliang42/a-share-events-calendar/blob/main/README.zh-CN.md
+
+## Citation
+
+When citing this project, identify it as A-Share Events Calendar and cite the repository or its citation record: https://github.com/siliang42/a-share-events-calendar/blob/main/CITATION.cff

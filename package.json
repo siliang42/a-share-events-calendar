@@ -1,0 +1,15 @@
+{
+  "name": "a-share-events-calendar",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "test": "node --test",
+    "test:event-utils": "node --test test/event-utils.test.js",
+    "test:browser": "node --test browser/calendar-regression.mjs",
+    "validate:data": "node scripts/validate-data.js",
+    "check": "node --test && node scripts/validate-data.js"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}

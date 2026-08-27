@@ -1,0 +1,48 @@
+name: Correct an event
+description: Report a source-backed correction to an existing event record.
+title: "[Correction]: "
+body:
+  - type: input
+    id: event_id
+    attributes:
+      label: Affected event ID
+      description: Copy the exact id from js/data.js.
+      placeholder: "fomc-2026-09"
+    validations:
+      required: true
+  - type: textarea
+    id: current_value
+    attributes:
+      label: Current value
+      description: Quote the field name and current value that need correction.
+    validations:
+      required: true
+  - type: textarea
+    id: corrected_value
+    attributes:
+      label: Corrected value
+      description: State the proposed replacement and why it is accurate.
+    validations:
+      required: true
+  - type: input
+    id: evidence_url
+    attributes:
+      label: Primary-source evidence URL
+      description: Provide a directly relevant official or primary HTTPS page.
+      placeholder: "https://official.example/correction"
+    validations:
+      required: true
+  - type: textarea
+    id: evidence_notes
+    attributes:
+      label: Evidence notes
+      description: Identify the passage or section that supports the correction.
+    validations:
+      required: true
+  - type: checkboxes
+    id: verification
+    attributes:
+      label: Verification
+      options:
+        - label: I opened the source and confirmed that it directly supports this correction.
+          required: true

@@ -1,0 +1,44 @@
+name: Report a bug
+description: Report a reproducible problem in the calendar or repository tooling.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not disclose security vulnerabilities here. Follow SECURITY.md and use GitHub Security Advisories.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: Describe what happened and why it appears incorrect.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Provide the smallest reliable sequence that demonstrates the problem.
+      placeholder: |
+        1. Open ...
+        2. Select ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Include browser and version, operating system, and repository commit or release.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Add relevant logs or screenshots. Remove credentials and private data.

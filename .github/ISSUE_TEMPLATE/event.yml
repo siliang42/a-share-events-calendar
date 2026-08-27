@@ -1,0 +1,77 @@
+name: Propose an event
+description: Propose an officially announced event for the calendar.
+title: "[Event]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Submit only factual events supported by a directly relevant official or primary HTTPS source.
+  - type: input
+    id: event_title
+    attributes:
+      label: Event title
+      description: Use a concise factual title supported by the source.
+    validations:
+      required: true
+  - type: input
+    id: start_date
+    attributes:
+      label: Start date
+      description: Use YYYY-MM-DD.
+      placeholder: "2026-09-15"
+    validations:
+      required: true
+  - type: input
+    id: end_date
+    attributes:
+      label: End date
+      description: Use YYYY-MM-DD. For a one-day event, repeat the start date.
+      placeholder: "2026-09-16"
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - macro
+        - policy
+        - market
+        - industry
+        - company
+        - product
+    validations:
+      required: true
+  - type: input
+    id: source_name
+    attributes:
+      label: Official source name
+      description: Name the official body or primary publisher.
+    validations:
+      required: true
+  - type: input
+    id: source_url
+    attributes:
+      label: Official source URL
+      description: Provide the directly relevant primary HTTPS page.
+      placeholder: "https://official.example/announcement"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Factual description
+      description: Summarize only facts established by the cited source.
+    validations:
+      required: true
+  - type: checkboxes
+    id: verification
+    attributes:
+      label: Verification checklist
+      options:
+        - label: I opened the cited page and confirmed that it is an official or primary source.
+          required: true
+        - label: The source URL uses HTTPS and directly supports the title and dates above.
+          required: true
+        - label: This proposal contains no rumor, inferred date, prediction, or investment recommendation.
+          required: true
