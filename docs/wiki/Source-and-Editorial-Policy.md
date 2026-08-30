@@ -21,7 +21,7 @@
 
 ## 更正与状态变更
 
-如果官方来源显示事件延期或取消，请更新 `status`、日期或描述，并保留足够证据解释变化。不要因为事件不再发生而直接删除 `postponed` 或 `cancelled` 记录。
+如果官方来源显示事件延期或取消，请更新 `status`、日期或描述，并保留足够证据解释变化。项目通过来源链接、Git history 以及关联的 Pull Request 或 Issue 保留变更审计线索；不要因为事件不再发生而直接删除 `postponed` 或 `cancelled` 记录。
 
 官方页面可能在 `verifiedAt` 之后更新。使用者应在研究前重新打开来源链接，并把日历视为证据索引，而不是不可变事实数据库。
 
@@ -43,6 +43,6 @@ Suitable sources include government agencies, regulators, exchanges, listed comp
 
 ### Corrections And Status Changes
 
-When a primary source shows that an event was postponed or cancelled, update `status`, dates, or description and preserve enough evidence to explain the change. Do not delete a record only because the event will no longer occur.
+When a primary source shows that an event was postponed or cancelled, update `status`, dates, or description and preserve enough evidence to explain the change. The source link, Git history, and related pull request or issue provide the audit trail; do not delete a record only because the event will no longer occur.
 
 Official pages can change after `verifiedAt`. Re-open the source before research and treat this calendar as an evidence index, not an immutable facts database.

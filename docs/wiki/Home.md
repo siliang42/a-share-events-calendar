@@ -13,7 +13,8 @@
 | 项目 | 状态 |
 | --- | --- |
 | 版本 | `v1.0.0` |
-| 运行时事件 | 3 条已核验的 2026 年 FOMC 会议记录 |
+| 运行时事件 | 3 条已核验的 2026 年 FOMC 会议记录，作为影响 A 股研究的外部宏观事件示例 |
+| 节假日元数据 | 渲染器支持，当前 `HOLIDAYS` 为空 |
 | 部署 | [GitHub Pages](https://siliang42.github.io/a-share-events-calendar/) |
 | 许可证 | [MIT](https://github.com/siliang42/a-share-events-calendar/blob/main/LICENSE) |
 | 校验 | Node 契约、数据校验与 Chromium 回归均纳入 CI |
@@ -24,8 +25,8 @@
 - [事件数据契约](Event-Data-Contract) / [Event Data Contract](Event-Data-Contract)
 - [来源与编辑政策](Source-and-Editorial-Policy) / [Source And Editorial Policy](Source-and-Editorial-Policy)
 - [架构与验证](Architecture-and-Validation) / [Architecture And Validation](Architecture-and-Validation)
-- [贡献指南](Contributing)
-- [常见问题](FAQ)
+- [贡献指南](Contributing) / [Contributing](Contributing)
+- [常见问题](FAQ) / [FAQ](FAQ)
 
 ## 重要边界
 
@@ -47,7 +48,8 @@ The project keeps the date and its evidence together: every event requires a pri
 | Item | Status |
 | --- | --- |
 | Version | `v1.0.0` |
-| Runtime events | Three verified 2026 Federal Open Market Committee meeting records |
+| Runtime events | Three verified 2026 Federal Open Market Committee meeting records, used as external macro-event examples relevant to A-share research |
+| Holiday metadata | Supported by the renderer; `HOLIDAYS` is currently empty |
 | Deployment | [GitHub Pages](https://siliang42.github.io/a-share-events-calendar/) |
 | License | [MIT](https://github.com/siliang42/a-share-events-calendar/blob/main/LICENSE) |
 | Validation | Node contract, data validation, and Chromium regression checks run in CI |

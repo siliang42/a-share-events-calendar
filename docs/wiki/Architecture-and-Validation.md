@@ -19,6 +19,8 @@ test/                           Node 内置测试套件
 
 农历注释来自浏览器标准 `Intl.DateTimeFormat` 的中国农历支持；不提供节气及干支月、日。运行环境不支持该 API 时，界面回退到公历信息。
 
+当前渲染器支持节假日元数据，但 `HOLIDAYS` 目前为空。
+
 ## 验证层次
 
 | 命令 | 覆盖内容 |
@@ -28,7 +30,7 @@ test/                           Node 内置测试套件
 | `npm run check` | 上述两项完整组合 |
 | `npm run test:browser` | Chromium 桌面/移动端布局、导航、焦点和线上交互契约 |
 
-GitHub Actions 的 `Validate` 与 `Deploy Pages` 工作流会在变更后运行这些检查。发布版本 `v1.0.0` 已通过本地和 CI 验证。
+GitHub Actions 的 `Validate` 工作流会运行 Node/数据契约和 Chromium 回归；`Deploy Pages` 工作流会运行 Node/数据契约并检查发布目录后部署 Pages。发布版本 `v1.0.0` 已通过本地和 CI 验证。
 
 ## SEO 与 AI 发现
 
@@ -42,6 +44,8 @@ The project uses browser-native HTML, CSS, and JavaScript with no production dep
 
 Lunar annotations use the browser-standard Chinese-calendar support in `Intl.DateTimeFormat`. Solar terms and cyclical month/day labels are intentionally out of scope. Unsupported runtimes fall back to Gregorian context.
 
+The renderer supports holiday metadata, but `HOLIDAYS` is currently empty.
+
 ### Validation Layers
 
 | Command | Coverage |
@@ -51,7 +55,7 @@ Lunar annotations use the browser-standard Chinese-calendar support in `Intl.Dat
 | `npm run check` | The two checks above as one contract |
 | `npm run test:browser` | Chromium desktop/mobile layout, navigation, focus, and interaction contracts |
 
-GitHub Actions runs the `Validate` and `Deploy Pages` workflows after changes. Release `v1.0.0` passed local and CI validation.
+The `Validate` workflow runs the Node/data contract and Chromium regression. The `Deploy Pages` workflow runs the Node/data contract and checks the publish directory before deployment. Release `v1.0.0` passed local and CI validation.
 
 ### SEO And AI Discovery
 

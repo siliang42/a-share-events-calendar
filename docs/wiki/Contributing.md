@@ -3,7 +3,7 @@
 ## 开始前
 
 - 先搜索已有 Issue 和 Pull Request，避免重复提交。
-- 新事件使用事件提案表单，现有记录更正使用更正表单。
+- 新事件使用[事件提案表单](https://github.com/siliang42/a-share-events-calendar/issues/new?template=event.yml)，现有记录更正使用[更正表单](https://github.com/siliang42/a-share-events-calendar/issues/new?template=correction.yml)。
 - 每个 Pull Request 保持一个清晰、可审查的变更范围。
 - 不提交投资建议、预测、推断日期或宣传性描述。
 
@@ -27,7 +27,7 @@ UI 变更应检查桌面和移动端布局、键盘导航、详情对话框焦�
 ### Before You Start
 
 - Search existing issues and pull requests before opening a new one.
-- Use the event proposal form for a new record and the correction form for an existing record.
+- Use the [event proposal form](https://github.com/siliang42/a-share-events-calendar/issues/new?template=event.yml) for a new record and the [correction form](https://github.com/siliang42/a-share-events-calendar/issues/new?template=correction.yml) for an existing record.
 - Keep each pull request focused and reviewable.
 - Do not submit investment advice, predictions, inferred dates, or promotional descriptions.
 

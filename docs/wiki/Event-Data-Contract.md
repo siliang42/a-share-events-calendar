@@ -45,7 +45,20 @@
 
 ## English
 
-Events live in the `EVENTS` array in `js/data.js`, ordered by `startDate`. Each record requires the same ten fields listed above.
+Events live in the `EVENTS` array in `js/data.js`, ordered by `startDate`. Each record requires these ten fields:
+
+| Field | Requirement |
+| --- | --- |
+| `id` | Stable, unique, lowercase identifier |
+| `title` | Concise factual title |
+| `startDate` | Valid `YYYY-MM-DD` date |
+| `endDate` | Valid date on or after `startDate` |
+| `category` | `macro`, `policy`, `market`, `industry`, `company`, or `product` |
+| `description` | Short factual summary supported by the source |
+| `status` | `confirmed`, `postponed`, or `cancelled` |
+| `sourceName` | Official or primary publisher name |
+| `sourceUrl` | Direct HTTPS source without embedded credentials |
+| `verifiedAt` | `YYYY-MM-DD` review date that is not in the future |
 
 ### Example
 
