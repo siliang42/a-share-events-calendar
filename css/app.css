@@ -402,6 +402,8 @@ a:focus-visible {
 .date-context p { margin: 3px 0 0; color: var(--muted); font-size: 13px; }
 .date-context p:first-child { margin-top: 0; color: var(--text); font-weight: 700; }
 .date-context .holiday-context { color: var(--brand-red-text); }
+.date-context .hotspot-context { color: var(--brand-red-text); font-weight: 700; }
+.date-context .hotspot-disclaimer { color: var(--muted); font-size: 12px; }
 
 .events-section { padding-top: 17px; }
 .events-heading-row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 10px; }
