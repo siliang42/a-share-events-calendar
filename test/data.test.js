@@ -1,6 +1,6 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { EVENTS } = require("../js/data.js");
+const { EVENTS, HOTSPOTS } = require("../js/data.js");
 const { formatLocalDate, validateEvents } = require("../scripts/validate-data.js");
 
 const TODAY = "2026-08-27";
@@ -31,6 +31,24 @@ function eventAt(index) {
 
 test("production events satisfy the public data contract", () => {
     assert.deepEqual(validateEvents(EVENTS, TODAY), []);
+});
+
+test("recurring hotspots have unique IDs and usable calendar mappings", () => {
+    assert.ok(HOTSPOTS.length >= 10);
+    assert.equal(new Set(HOTSPOTS.map((hotspot) => hotspot.id)).size, HOTSPOTS.length);
+    const victory = HOTSPOTS.find((hotspot) => hotspot.id === "victory-day");
+    assert.deepEqual(victory.sectors, ["军工", "国防装备", "军贸"]);
+    assert.equal(victory.solarMonth, 9);
+    assert.equal(victory.solarDay, 3);
+    for (const hotspot of HOTSPOTS) {
+        assert.ok(hotspot.name && hotspot.note);
+        assert.ok(Array.isArray(hotspot.sectors) && hotspot.sectors.length);
+        assert.ok(
+            (Number.isInteger(hotspot.solarMonth) && Number.isInteger(hotspot.solarDay)) ||
+            (Number.isInteger(hotspot.lunarMonth) && Number.isInteger(hotspot.lunarDay)),
+            hotspot.id
+        );
+    }
 });
 
 test("production events include every required field", () => {

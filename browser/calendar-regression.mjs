@@ -78,6 +78,8 @@ test("Chromium calendar regression", async (suite) => {
             page.on("pageerror", (error) => consoleProblems.push(`pageerror: ${error.message}`));
 
             await page.goto(APP_URL, { waitUntil: "load" });
+            const localNow = new Date();
+            assert.equal(await page.locator("#month-title").textContent(), `${localNow.getFullYear()}年 ${localNow.getMonth() + 1}月`);
             await navigateToSeptember2026(page);
 
             const grid = page.locator("#calendar-grid");
@@ -93,6 +95,13 @@ test("Chromium calendar regression", async (suite) => {
             assert.equal(await festivalDay.count(), 1);
             assert.equal(await festivalDay.evaluate((element) => element.classList.contains("is-festival")), true);
             assert.equal(await festivalDay.locator(".day-note").textContent(), "中秋节");
+
+            const victoryDay = page.locator('.day-cell[aria-label^="2026年9月3日"]');
+            assert.equal(await victoryDay.count(), 1);
+            await victoryDay.click();
+            assert.match(await page.locator("#date-context").textContent(), /抗战胜利纪念日/);
+            assert.match(await page.locator("#date-context").textContent(), /军工、国防装备、军贸/);
+            await page.locator("#detail-close").click();
 
             const itemList = JSON.parse(await page.locator("#event-jsonld").textContent());
             assert.equal(itemList["@type"], "ItemList");

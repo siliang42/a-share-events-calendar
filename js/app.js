@@ -2,7 +2,6 @@
 (function () {
     "use strict";
 
-    var TODAY = new Date();
     var WEEK_HEADS = ["日", "一", "二", "三", "四", "五", "六"];
     var SOLAR_FESTIVALS = {
         "1-1": "元旦",
@@ -26,8 +25,13 @@
         "12-8": "腊八节"
     };
 
-    var viewYear = TODAY.getFullYear();
-    var viewMonth = TODAY.getMonth();
+    function currentDate() {
+        return new Date();
+    }
+
+    var initialDate = currentDate();
+    var viewYear = initialDate.getFullYear();
+    var viewMonth = initialDate.getMonth();
     var lastTrigger = null;
     var holidayMap = buildHolidayMap(HOLIDAYS);
 
@@ -84,6 +88,16 @@
         return festivals;
     }
 
+    function getHotspots(lunar, month, day) {
+        var solarMonth = month + 1;
+        return HOTSPOTS.filter(function (hotspot) {
+            if (hotspot.solarMonth === solarMonth && hotspot.solarDay === day) {
+                return true;
+            }
+            return lunar && !lunar.isLeap && hotspot.lunarMonth === lunar.lMonth && hotspot.lunarDay === lunar.lDay;
+        });
+    }
+
     function buildDayMeta(year, month, day) {
         var key = EventUtils.formatDateKey(year, month, day);
         var calendarDate = EventUtils.resolveCalendarDate(calendar, year, month, day);
@@ -99,8 +113,9 @@
             weekdayIndex: new Date(year, month, day).getDay(),
             holiday: holiday,
             festivals: getFestivals(calendarDate.lunar, month, day, holiday),
+            hotspots: getHotspots(calendarDate.lunar, month, day),
             events: EventUtils.eventsOnDate(EVENTS, key),
-            isToday: key === dateToKey(TODAY),
+            isToday: key === dateToKey(currentDate()),
             isCurrentMonth: year === viewYear && month === viewMonth
         };
     }
@@ -121,7 +136,7 @@
         var dayNumber = document.createElement("span");
         var dayNote = document.createElement("span");
         var flags = document.createElement("span");
-        var note = meta.festivals[0] || (meta.lunar
+        var note = meta.festivals[0] || (meta.hotspots[0] ? meta.hotspots[0].name : null) || (meta.lunar
             ? (meta.lunar.lDay === 1 ? meta.lunar.IMonthCn : meta.lunar.IDayCn)
             : "公历");
         var accessibleParts = [
@@ -261,7 +276,6 @@
         if (meta.festivals.length) {
             calendarLine += " · " + meta.festivals.join("、");
         }
-
         appendContextLine(lunarLine);
         appendContextLine(calendarLine);
         if (meta.holiday) {
@@ -269,6 +283,15 @@
                 (meta.holiday.type === "holiday" ? "法定节假日：" : "调休上班：") + meta.holiday.name,
                 "holiday-context"
             );
+        }
+        if (meta.hotspots.length) {
+            meta.hotspots.forEach(function (hotspot) {
+                appendContextLine(
+                    "热点提示：" + hotspot.name + " · 关联板块：" + hotspot.sectors.join("、"),
+                    "hotspot-context"
+                );
+                appendContextLine(hotspot.note + "；仅作研究线索，不构成投资建议。", "hotspot-disclaimer");
+            });
         }
     }
 
@@ -394,8 +417,9 @@
             changeMonth(1);
         });
         document.getElementById("go-today").addEventListener("click", function () {
-            viewYear = TODAY.getFullYear();
-            viewMonth = TODAY.getMonth();
+            var today = currentDate();
+            viewYear = today.getFullYear();
+            viewMonth = today.getMonth();
             renderCalendar();
         });
         detailClose.addEventListener("click", closeDetails);
